@@ -1,11 +1,24 @@
-This file contains answer for the Critical Thinking questions.
-
 Critical Thinking (2 points total) Modify this ReadMe file to answer the following questions directly in place.
 1. Kaggle changes links/ file locations/login process/ file content
+   As a back up option, we can have the file stored in our local data environment. So incase the link is broken or not able to reach kaggle we can have the file stored in our local repository for execution of model. 
+   Other option will be to have the data stored in our local database, so if the file is not available we can read it from database.
+   Else we can do a replication of data, making sure having a scheduler process to go and get the latest file daily at a particular period of time, so the latest and greatest file is available for analysis.
+
+
 2. We run out of space on HD / local permissions issue - can't save files
+    In case of facing storage issue, the next option is to look for back up, storing in the file in cloud file storage and read the file from cloud rather than relying on the local HD.
+    The problem is cost involved if we go for a Cloud, so if we can maintain a private cloud with some infrastructure cost, t
+   hen this will be better option.
+
+
 3. Someone updated python packages and there is unintended effect (functions retired or act differently)
-4. Docker issues - lost internet within docker due to some ip binding to vm or local routing issues( 
-I guess this falls under lost internet, but I am talking more if docker is the cause rather then ISP)
+	One way to make sure that the packages are up to date is making sure we do a pip on the requirements.txt file there by making sure the latest packages are available.
+	The other option is to make use to virtual environments. So we have to create a virtual env and have the dependencies 
+  and packages installed in that environment, so every time we want to run the model, we have to run it from the virtual environment, so in that case the new changes to the package will not get trickled down to the virtual environment.
 
-Notes to Professor:
 
+4. Docker issues - lost internet within docker due to some ip binding to vm or local routing issues( I guess this falls under lost internet, but I am talking more if docker is the cause rather then ISP)
+	In case of any ip or port issues with docker, first we have to see which other application is using the ip/port and kill 
+  the application. If some other container is using the port then we have to make sure we have to kill the container. 
+  If we want to dig deeper in to issues on Docker, then we can run docker in debug mode, using -D, 
+  so we get more detailed error and messages.
