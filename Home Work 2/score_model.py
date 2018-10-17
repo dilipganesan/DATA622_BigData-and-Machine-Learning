@@ -22,11 +22,10 @@ any other way of model evaluation).
 
 # Import functions and packages.
 
-import pull_data as pulldata
+import new_pull as pulldata
 import train_model as trainmodel
 import pickle
 import pandas as pd
-
 
 
 # Step 1: Loading the test_data
@@ -71,6 +70,7 @@ try:
 except:
     raise
     
-# Running the confusion matrix and class report.
+
+
 
 

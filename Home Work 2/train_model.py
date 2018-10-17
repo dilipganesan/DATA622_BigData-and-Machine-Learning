@@ -19,7 +19,7 @@ saved as a .pkl file in the local directory.
 
 
 ## import the needed functions.
-import pull_data as pulldata
+import new_pull as pulldata
 #import pandas as pd
 from sklearn.model_selection import train_test_split
 #from sklearn.metrics import confusion_matrix, classification_report
@@ -44,7 +44,7 @@ def clean_data(df):
 
 ## impute data method.
 def impute_data(df, target):
-    print(df.columns)
+    #print(df.columns)
     if target == 'train':
         # We already know that for train data we have Embarked and Age has NA.
         df['Embarked'] = df['Embarked'].fillna('S')
@@ -131,3 +131,7 @@ try:
     pickle.dump(model, open('model.pkl', 'wb'))
 except:
     raise
+    
+## As far as train model is concerned, things that could be improved include. Better
+## imputation methodologies can be used rather than simple one used in the program.
+## Hyperparameter can be used in picking on parameter for the model.
