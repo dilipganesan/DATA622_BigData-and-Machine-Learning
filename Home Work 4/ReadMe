@@ -4,3 +4,33 @@ mapper.py
 reducer.py
 hw4output.txt
 Hadoop_File.png(Screenshot of my hadoop install)
+
+Submit your answers by modifying this README.md file.
+
+(1 points) What is Hadoop 1's single point of failure and why is this critical? How is this alleviated in Hadoop 2?
+Ans : The single point of failure in Hadoop v1 is NameNode. If NameNode fail's then whole Hadoop cluster will not work. 
+Since NameNode is the only  point of contact to all DataNodes and if the NameNode fails all communication will stop if it fails.
+With HDFS High Availability of Namenode is introduced with Hadoop 2. In this two separate machines are getting configured as 
+NameNodes, where one NameNode always in working state and anther is in standby. The Master-Slave configuration was introduced to 
+solve this issue.
+
+
+(2 points) What happens when a data node fails?
+The NameNode and DataNode acst as buddie pair. The keep in constant touch with each other, where in datanode keeps sending signals
+making sure the datanode is alive. When a NameNode does not receives the signal from the datanode, it declares it as lost. 
+To keep the replication of the all the data to defined replication factor, the Namenode will make the copies on other data nodes.
+When a data node comes back with all its data, Name node will clean the extra copies of data. 
+
+(1 point) What is a daemon? Describe the role task trackers and job trackers play in the Hadoop environment.
+
+(1 point) Why is Cloudera's VM considered pseudo distributed computing? How is it different from a true Hadoop 
+cluster computing?
+
+(1 point) What is Hadoop streaming? What is the Hadoop Ecosystem?
+
+(1 point) During a reducer job, why do we need to know the current key, current value, previous key, and 
+cumulative value, but NOT the previous value?
+
+(3 points) A large international company wants to use Hadoop MapReduce to calculate the # of sales by location by day. 
+The logs data has one entry per location per day per sale. Describe how MapReduce will work in this scenario, 
+using key words like: intermediate records, shuffle and sort, mappers, reducers, sort, key/value, task tracker, job tracker.
