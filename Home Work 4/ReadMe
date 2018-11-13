@@ -34,12 +34,33 @@ assigned to Job Tracker which perform Map, Reduce and Shuffle operations.
 
 (1 point) Why is Cloudera's VM considered pseudo distributed computing? How is it different from a true Hadoop 
 cluster computing?
+Ans : In general Hadoop installation is standalone, as a single Java process(single JVM Instance) 
+      A single node setup is one where you have one datanode and one tasktracker on a  machine.
+
+CDH on the other hand is a pseudo-distributed setup is where you have multiple datanodes and many tasktrackers on a single machine. 
+So you have multiple instances of a datanode service running on a single machine to emulate a multi-node cluster.
 
 (1 point) What is Hadoop streaming? What is the Hadoop Ecosystem?
+Ans : Hadoop Streaming is the API which helps writing Mapper and Reducers in any programming language.
+
+Hadoop Ecosystem contains Hadoop Distributed File System, MapReduce, YARN, Hive, Pig, Hbase, Flume.
+
 
 (1 point) During a reducer job, why do we need to know the current key, current value, previous key, and 
 cumulative value, but NOT the previous value?
 
+Ans : Reducer job has input which is shuffled and sorted based on the Key. Key is the important parameter for Reducer. 
+The Previous Value is not a key and this keeps changing. The previous value is already stored in cumulative value and the 
+value changes as and when the key changes.
+
+
 (3 points) A large international company wants to use Hadoop MapReduce to calculate the # of sales by location by day. 
 The logs data has one entry per location per day per sale. Describe how MapReduce will work in this scenario, 
 using key words like: intermediate records, shuffle and sort, mappers, reducers, sort, key/value, task tracker, job tracker.
+
+Ans : Job tracker is the master which runs the programs, maintain tasks etc. Job tracker will work is conjunction with 
+task tracker. Mapper will read the data and split the data in to Key/Value pairs. In this case the Location will be the key 
+and it will keep putting the sale count as values. The output from the mapper is intermediate record, which is then 
+shuffled and sorted and fed to the reducer. The part of reducer is to take the key and do the calculation of sales for each 
+location and create an output file. The output will be number of sales by location on a day.
+
