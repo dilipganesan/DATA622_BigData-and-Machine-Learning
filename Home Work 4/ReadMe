@@ -22,6 +22,15 @@ To keep the replication of the all the data to defined replication factor, the N
 When a data node comes back with all its data, Name node will clean the extra copies of data. 
 
 (1 point) What is a daemon? Describe the role task trackers and job trackers play in the Hadoop environment.
+Deamons are processes that run in a background in Hadoop system. They are NameNode, DataNode, ResourceManager and NodeManager.
+
+Job Tracker:  
+NameNode and DataNodes store data on HDFS. Processing of data can be done using MapReduce algorithm. 
+MapReduce engine sends the code across DataNodes, creating jobs. These jobs are to be continuously monitored by Job tracker 
+who manages those jobs.
+
+Task Tracker: A TaskTracker is a node in the cluster that accepts tasks. These tasks are then
+assigned to Job Tracker which perform Map, Reduce and Shuffle operations.
 
 (1 point) Why is Cloudera's VM considered pseudo distributed computing? How is it different from a true Hadoop 
 cluster computing?
