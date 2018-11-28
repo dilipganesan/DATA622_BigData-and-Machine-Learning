@@ -39,5 +39,8 @@ so we might end using MLLib.
 
 5. (2 points) Explain the tradeoffs between using Scala vs PySpark.
 
-Ans:Scala performance is 100 times faster compared to Python. Python syntax is simple and it is easy to be used by Java programmers like me, 
-who are dependent on libraries and packages. Scala is statically typed language like Java, whereas Python is dynamically typed. Meaning there is no compiler to make sure we are doing the type casting correctly. Python is less verbose and easy to learn, whereas scala is pretty verbose and convoluted. Last but not the least the support for Machine Learning algorithms provided by python, which scala is lacking.
+Ans: Scala performance is 100 times faster compared to Python. Python syntax is simple and it is easy to be used by Java programmers like me, 
+who are dependent on libraries and packages. Scala is statically typed language like Java, whereas Python is dynamically typed.
+Meaning there is no compiler to make sure we are doing the type casting correctly. Python is less verbose and easy to learn, 
+whereas scala is pretty verbose and convoluted. Last but not the least the support for Machine Learning algorithms provided by 
+python, which scala is lacking.
