@@ -1,1 +1,43 @@
 This file contains answers for Critical Reasoning Questions.
+
+
+1. (2 points) How is the current Spark's framework different from MapReduce? What are the tradeoffs of better performance 
+   speed in Spark?
+   
+Ans : Spark and MapReduce are both used for data processing. Spark do it in-memory while mapreduce reads and write data to disk. 
+Since there is not much of i/o in spark, the performance of spark is 100 times faster. However even though performance is fast, for processing
+of very larger dataset Mapreduce is much better. So for real time processing Spark is better, for batch processing Mapreduce is better.
+
+
+2. (2 points) Explain the difference between Spark RDD and Spark DataFrame/Datasets.
+
+Ans:RDD (Resilient Distributed Dataset) is the basic data structure of Apache Spark which are an immutable collection of 
+objects which computes on the different node of the cluster. Each and every object in Spark RDD is  partitioned across many 
+servers so that they can be computed on different nodes of the cluster.
+
+In Dataframes, data is organized into named columns. just like a table in a relational database. DataFrame in Spark allows 
+developers to impose a structure onto a distributed collection of data, allowing higher-level abstraction. The idea 
+behind DataFrame is it allows processing of a large amount of structured data
+
+In Datasets are an extension of DataFrame API which provides type-safe, object-oriented programming interface. 
+It has both the important feature of Dataframes and RDD.
+
+3. (1 point) Explain the difference between SparkML and Mahout.
+
+Ans: Mahout and SparkML are both Machine learning Frameworks. Mahout is very matured and has many Machine learning algorithm 
+from which we can choose. Mahout is built of top of MapReduce, so it has all the disadvantages of MapReduce like i/o, 
+disk space and slow performance etc. Spark is often noted as running iterative algorithms much faster than Hadoop since 
+it tries to avoid writing to disk as much as possible. SparkML is built on top of Spark to take advantage of Spark’s 
+efficiency when running iterative Machine Learning algorithms.So compared with performance of Mahout, SparkML is 100 times faster.
+
+4. (1 point) Explain the difference between Spark.mllib and Spark.ml.
+
+Ans: Spark Machine learning has two packages, namely Mllib and ML.  MlLib contains the original API built on top of RDDs 
+while the ML provides higher-level API built on top of DataFrames. Since it uses dataframes, the constructing ML pipelines is 
+much faster than MlLib. Inspite of being fast, the problem with ML is it has limited set of Machine learning algorithms to play from, 
+so we might end using MLLib.
+
+5. (2 points) Explain the tradeoffs between using Scala vs PySpark.
+
+Ans:Scala performance is 100 times faster compared to Python. Python syntax is simple and it is easy to be used by Java programmers like me, 
+who are dependent on libraries and packages. Scala is statically typed language like Java, whereas Python is dynamically typed. Meaning there is no compiler to make sure we are doing the type casting correctly. Python is less verbose and easy to learn, whereas scala is pretty verbose and convoluted. Last but not the least the support for Machine Learning algorithms provided by python, which scala is lacking.
